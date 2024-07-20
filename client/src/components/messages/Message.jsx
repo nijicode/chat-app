@@ -1,39 +1,34 @@
 import React from "react";
+import { useAuthContext } from "../../context/authContext";
+import useConversation from "../../zustand/useConversation";
+import { extractTime } from "../../utils/extractTime";
 
-const Message = () => {
+const Message = ({ message }) => {
+  const { authUser } = useAuthContext();
+  const { selectedConversation } = useConversation();
+  const fromMe = message.senderId === authUser._id;
+  const chatClassName = fromMe ? "chat-end" : "chat-start";
+  const profilePic = fromMe
+    ? authUser.profilePic
+    : selectedConversation?.profilePic;
+  const bubbleBgColor = fromMe ? "bg-slate-500 text-black " : "bg-[#1d232a] ";
+  const formattedTime = extractTime(message.createdAt);
+  const shakeClass = message.shouldShake ? "animate-shake" : "";
   return (
     <>
-      <div className="chat chat-end">
+      <div className={`chat ${chatClassName}`}>
         <div className="chat-image avatar">
           <div className="w-10 rounded-full">
-            <img
-              alt="Tailwind CSS chat bubble component"
-              src="https://avatar.iran.liara.run/public/girl"
-            />
+            <img alt="chat profile pic" src={profilePic} />
           </div>
         </div>
-        <div className="chat-bubble bg-slate-500 text-black text-md leading-tight">
-          It was said that you would, destroy the Sith, not join them.
+        <div
+          className={`font-semibold chat-bubble ${bubbleBgColor} ${shakeClass} pb-2 text-md leading-tight`}
+        >
+          {message.message}
         </div>
         <div className="chat-footer opacity-50">
-          <time class="text-xs opacity-50">12:45</time>
-        </div>
-      </div>
-
-      <div className="chat chat-start">
-        <div className="chat-image avatar">
-          <div className="w-10 rounded-full">
-            <img
-              alt="Tailwind CSS chat bubble component"
-              src="https://avatar.iran.liara.run/public/girl"
-            />
-          </div>
-        </div>
-        <div className="chat-bubble bg-[#1d232a] text-md leading-tight">
-          OMG!!
-        </div>
-        <div className="chat-footer opacity-50">
-          <time class="text-xs opacity-50">12:45</time>
+          <time className="text-xs">{formattedTime}</time>
         </div>
       </div>
     </>

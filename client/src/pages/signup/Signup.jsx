@@ -1,50 +1,111 @@
-import React from "react";
+import React, { useState } from "react";
 import Gender from "./Gender";
+import { Link } from "react-router-dom";
+import useSignup from "../../hooks/useSignup";
 
 const Signup = () => {
+  const [inputs, setInputs] = useState({
+    fullName: "",
+    username: "",
+    password: "",
+    confirmPassword: "",
+    gender: "",
+  });
+
+  const { loading, signup } = useSignup();
+
+  const handleCheckboxChange = (gender) => {
+    setInputs({ ...inputs, gender });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await signup(inputs);
+  };
+
   return (
     <div>
-      <div class="card p-6 bg-gray-400 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 w-full max-w-md shrink-0 shadow-2xl">
+      <div className="card p-6 bg-gray-400 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 w-full max-w-md shrink-0 shadow-2xl">
         <h1 className="text-center font-bold text-3xl">Sign up</h1>
-        <form class="card-body">
-          <div class="form-control">
+        <form className="card-body" onSubmit={handleSubmit}>
+          <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
               Name:
-              <input type="text" className="grow" placeholder="Juan" />
+              <input
+                type="text"
+                className="grow"
+                placeholder="Juan"
+                value={inputs.fullName}
+                onChange={(e) =>
+                  setInputs({ ...inputs, fullName: e.target.value })
+                }
+              />
             </label>
           </div>
-          <div class="form-control">
+          <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
               Username:
-              <input type="text" className="grow" placeholder="Juan01" />
+              <input
+                type="text"
+                className="grow"
+                placeholder="Juan01"
+                value={inputs.username}
+                onChange={(e) =>
+                  setInputs({ ...inputs, username: e.target.value })
+                }
+              />
             </label>
           </div>
-          <div class="form-control">
+          <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
               Password:
-              <input type="text" className="grow" placeholder="@my6fatDogs" />
+              <input
+                type="password"
+                className="grow"
+                placeholder="@my6fatDogs"
+                value={inputs.password}
+                onChange={(e) =>
+                  setInputs({ ...inputs, password: e.target.value })
+                }
+              />
             </label>
           </div>
-          <div class="form-control">
+          <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
               ConfirmPassword:
               <input
                 type="password"
                 className="grow"
                 placeholder="@my6fatDogs"
+                value={inputs.confirmPassword}
+                onChange={(e) =>
+                  setInputs({ ...inputs, confirmPassword: e.target.value })
+                }
               />
             </label>
           </div>
           <div className="form-control">
-            <Gender />
-            <label class="label ml-auto">
-              <a href="#" class="label-text-alt link link-hover">
+            <Gender
+              onCheckboxChange={handleCheckboxChange}
+              selectedGender={inputs.gender}
+            />
+            <label className="label ml-auto">
+              <Link
+                to="/login"
+                className="font-semibold label-text-alt link link-hover"
+              >
                 already have account?
-              </a>
+              </Link>
             </label>
           </div>
-          <div class="form-control mt-6">
-            <button class="btn ">Sign Up</button>
+          <div className="form-control mt-6">
+            <button className="btn " disabled={loading}>
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Sign Up"
+              )}
+            </button>
           </div>
         </form>
       </div>

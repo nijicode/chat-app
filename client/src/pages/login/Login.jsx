@@ -1,13 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import useLogin from "../../hooks/useLogin";
+import { BiSolidHide, BiSolidShow } from "react-icons/bi";
 
 const Login = () => {
+  const [inputs, setInputs] = useState({ username: "", password: "" });
+  const [showPassword, setShowPassword] = useState(false);
+  const { loading, login } = useLogin();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await login(inputs);
+  };
+
   return (
     <div>
-      {" "}
-      <div class="card p-6 bg-gray-400 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 w-full max-w-md shrink-0 shadow-2xl">
+      <div className="card p-6 bg-gray-400 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 w-full max-w-md shrink-0 shadow-2xl">
         <h1 className="text-center font-bold text-3xl">Login</h1>
-        <form class="card-body">
-          <div class="form-control">
+        <form className="card-body" onSubmit={handleSubmit}>
+          <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -17,10 +28,18 @@ const Login = () => {
               >
                 <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6ZM12.735 14c.618 0 1.093-.561.872-1.139a6.002 6.002 0 0 0-11.215 0c-.22.578.254 1.139.872 1.139h9.47Z" />
               </svg>
-              <input type="text" className="grow" placeholder="Username" />
+              <input
+                type="text"
+                className="grow"
+                placeholder="Username"
+                value={inputs.username}
+                onChange={(e) =>
+                  setInputs({ ...inputs, username: e.target.value })
+                }
+              />
             </label>
           </div>
-          <div class="form-control">
+          <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -34,16 +53,46 @@ const Login = () => {
                   clipRule="evenodd"
                 />
               </svg>
-              <input type="password" className="grow" placeholder="••••••••" />
+              <input
+                type={showPassword ? "text" : "password"}
+                className="grow"
+                placeholder="••••••••"
+                value={inputs.password}
+                onChange={(e) =>
+                  setInputs({ ...inputs, password: e.target.value })
+                }
+              />
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+              >
+                {showPassword ? (
+                  <BiSolidHide className="text-xl hover:scale-125 duration-500" />
+                ) : (
+                  <BiSolidShow className="text-xl hover:scale-125 duration-500" />
+                )}
+              </button>
             </label>
-            <label class="label">
-              <a href="#" class="label-text-alt link link-hover">
-                forgot password?
-              </a>
+            <label className="label justify-center">
+              <div className="gap-1 flex">
+                <span className="label-text-alt opacity-70">Not a Member?</span>
+                <Link
+                  to="/signup"
+                  className="font-semibold label-text-alt link link-hover"
+                >
+                  Create Account
+                </Link>
+              </div>
             </label>
           </div>
-          <div class="form-control mt-6">
-            <button class="btn ">Login</button>
+          <div className="form-control mt-6">
+            <button className="btn " disabled={loading}>
+              {loading ? (
+                <span className="loading loading-spinner"></span>
+              ) : (
+                "Login"
+              )}
+            </button>
           </div>
         </form>
       </div>
