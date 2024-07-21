@@ -32,7 +32,6 @@ const Signup = () => {
             <label className="input input-bordered flex items-center gap-2">
               <input
                 type="text"
-                className="grow"
                 placeholder="Name:"
                 value={inputs.fullName}
                 onChange={(e) =>
@@ -45,7 +44,6 @@ const Signup = () => {
             <label className="input input-bordered flex items-center gap-2">
               <input
                 type="text"
-                className="grow"
                 placeholder="Username:"
                 value={inputs.username}
                 onChange={(e) =>
@@ -58,7 +56,6 @@ const Signup = () => {
             <label className="input input-bordered flex items-center gap-2">
               <input
                 type="password"
-                className="grow"
                 placeholder="Password:"
                 value={inputs.password}
                 onChange={(e) =>
@@ -71,7 +68,6 @@ const Signup = () => {
             <label className="input input-bordered flex items-center gap-2">
               <input
                 type="password"
-                className="grow"
                 placeholder="ConfirmPassword:"
                 value={inputs.confirmPassword}
                 onChange={(e) =>
