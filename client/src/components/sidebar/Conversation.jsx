@@ -35,7 +35,7 @@ const Conversation = ({ conversation, lastIdx }) => {
           </div>
         </div>
       </div>
-      {!lastIdx && <div className="divider py-0 my-0 h-1"></div>}
+      {!lastIdx && <div className="divider bg-[#a6adbb] py-0 my-0 h-1"></div>}
     </>
   );
 };

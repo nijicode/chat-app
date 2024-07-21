@@ -26,7 +26,7 @@ const SearchInput = () => {
   };
   return (
     <form className="flex items-center gap-2 p-2" onSubmit={handleSubmit}>
-      <label className="input w-full input-bordered flex items-center relative overflow-hidden">
+      <label className="input w-full bg-[#1d232a] input-bordered flex items-center relative overflow-hidden">
         <input
           type="text"
           className="grow"
