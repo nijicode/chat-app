@@ -14,7 +14,7 @@ const Login = () => {
   };
 
   return (
-    <div className="card p-6  h-screen md:h-fit bg-[#293037] rounded-none md:rounded-3xl w-screen md:w-full md:max-w-md shrink-0 shadow-2xl">
+    <div className="card p-6 overflow-hidden h-screen md:h-fit bg-[#293037] rounded-none md:rounded-3xl w-screen md:w-full md:max-w-md shrink-0 shadow-2xl">
       <div className="flex flex-col justify-center h-full ">
         <h1 className="text-center font-bold text-3xl ">Login</h1>
         <form className="card-body flex-none" onSubmit={handleSubmit}>
