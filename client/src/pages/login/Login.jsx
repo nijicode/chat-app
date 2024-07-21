@@ -14,10 +14,10 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <div className="card p-6 bg-gray-400 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 w-full max-w-md shrink-0 shadow-2xl">
+    <div className="card p-6  h-screen md:h-fit  bg-gray-400 rounded-none md:rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 w-screen md:w-full md:max-w-md shrink-0 shadow-2xl">
+      <div className="flex flex-col justify-center h-full ">
         <h1 className="text-center font-bold text-3xl">Login</h1>
-        <form className="card-body" onSubmit={handleSubmit}>
+        <form className="card-body flex-none" onSubmit={handleSubmit}>
           <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
               <svg

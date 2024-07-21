@@ -23,7 +23,7 @@ const Message = ({ message }) => {
           </div>
         </div>
         <div
-          className={`font-semibold chat-bubble ${bubbleBgColor} ${shakeClass} pb-2 text-md leading-tight`}
+          className={`font-semibold chat-bubble break-words ${bubbleBgColor} ${shakeClass} pb-2 text-md leading-tight`}
         >
           {message.message}
         </div>

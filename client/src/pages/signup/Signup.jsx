@@ -25,9 +25,9 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="card p-6 bg-gray-400 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 w-full max-w-md shrink-0 shadow-2xl">
+      <div className="card p-6 flex flex-col justify-center w-screen h-screen md:h-fit bg-gray-400 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 md:w-full md:max-w-md shrink-0 shadow-2xl">
         <h1 className="text-center font-bold text-3xl">Sign up</h1>
-        <form className="card-body" onSubmit={handleSubmit}>
+        <form className="card-body flex-none " onSubmit={handleSubmit}>
           <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
               Name:
