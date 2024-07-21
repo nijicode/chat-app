@@ -25,16 +25,15 @@ const Signup = () => {
 
   return (
     <div>
-      <div className="card p-6 flex flex-col justify-center w-screen h-screen md:h-fit bg-gray-400 rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 md:w-full md:max-w-md shrink-0 shadow-2xl">
+      <div className="card p-6 flex flex-col justify-center w-screen h-screen md:h-fit bg-gray-400 md:rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 md:w-full md:max-w-md shrink-0 shadow-2xl">
         <h1 className="text-center font-bold text-3xl">Sign up</h1>
         <form className="card-body flex-none " onSubmit={handleSubmit}>
           <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
-              Name:
               <input
                 type="text"
                 className="grow"
-                placeholder="Juan"
+                placeholder="Name:"
                 value={inputs.fullName}
                 onChange={(e) =>
                   setInputs({ ...inputs, fullName: e.target.value })
@@ -44,11 +43,10 @@ const Signup = () => {
           </div>
           <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
-              Username:
               <input
                 type="text"
                 className="grow"
-                placeholder="Juan01"
+                placeholder="Username:"
                 value={inputs.username}
                 onChange={(e) =>
                   setInputs({ ...inputs, username: e.target.value })
@@ -58,11 +56,10 @@ const Signup = () => {
           </div>
           <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
-              Password:
               <input
                 type="password"
                 className="grow"
-                placeholder="@my6fatDogs"
+                placeholder="Password:"
                 value={inputs.password}
                 onChange={(e) =>
                   setInputs({ ...inputs, password: e.target.value })
@@ -72,11 +69,10 @@ const Signup = () => {
           </div>
           <div className="form-control">
             <label className="input input-bordered flex items-center gap-2">
-              ConfirmPassword:
               <input
                 type="password"
                 className="grow"
-                placeholder="@my6fatDogs"
+                placeholder="ConfirmPassword:"
                 value={inputs.confirmPassword}
                 onChange={(e) =>
                   setInputs({ ...inputs, confirmPassword: e.target.value })
