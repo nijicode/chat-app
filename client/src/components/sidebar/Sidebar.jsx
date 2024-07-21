@@ -7,7 +7,7 @@ const Sidebar = () => {
   return (
     <div className="w-screen md:w-fit md:border-r p-4 flex flex-col">
       <SearchInput />
-      <div className="divider bg-[#a6adbb] px-3"></div>
+      <div className="divider h-2 px-3"></div>
       <Conversations />
       <LogoutButton />
     </div>

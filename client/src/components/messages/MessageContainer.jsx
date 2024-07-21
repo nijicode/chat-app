@@ -24,7 +24,7 @@ const MessageContainer = () => {
         <>
           <div className="bg-slate-400 items-center w-full text-black flex gap-2 p-2">
             <button
-              className=" md:hidden text-3xl mr-1"
+              className=" text-black md:hidden text-3xl mr-1"
               type="button"
               onClick={() => setSelectedConversation(null)}
             >
@@ -35,7 +35,7 @@ const MessageContainer = () => {
                 <img src={selectedConversation.profilePic} />
               </div>
             </div>
-            <span className="font-semibold capitalize">
+            <span className="font-semibold text-black capitalize">
               {selectedConversation.username}
             </span>
           </div>

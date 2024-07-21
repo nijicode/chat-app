@@ -64,7 +64,6 @@ const Login = () => {
               />
               <button
                 type="button"
-                className="bg-[#1d232a] "
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
@@ -87,7 +86,7 @@ const Login = () => {
             </label>
           </div>
           <div className="form-control mt-6">
-            <button className="btn " disabled={loading}>
+            <button className="btn bg-[#1d232a]" disabled={loading}>
               {loading ? (
                 <span className="loading loading-spinner"></span>
               ) : (
