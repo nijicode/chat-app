@@ -10,7 +10,7 @@ function App() {
   const { authUser } = useAuthContext();
   return (
     <>
-      <div className="flex flex-col justify-center items-center w-full h-screen">
+      <div className="flex flex-col justify-center items-center w-full h-screen bg-[#1d232a]">
         <Routes>
           <Route
             path="/"

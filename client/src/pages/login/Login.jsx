@@ -16,9 +16,9 @@ const Login = () => {
   return (
     <div className="card p-6  h-screen md:h-fit  bg-gray-400 rounded-none md:rounded-3xl bg-clip-padding backdrop-filter backdrop-blur-3xl bg-opacity-10 w-screen md:w-full md:max-w-md shrink-0 shadow-2xl">
       <div className="flex flex-col justify-center h-full ">
-        <h1 className="text-center font-bold text-3xl">Login</h1>
+        <h1 className="text-center font-bold text-3xl ">Login</h1>
         <form className="card-body flex-none" onSubmit={handleSubmit}>
-          <div className="form-control">
+          <div className="form-control ">
             <label className="input input-bordered flex items-center gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -30,7 +30,7 @@ const Login = () => {
               </svg>
               <input
                 type="text"
-                className="grow"
+                className="grow "
                 placeholder="Username"
                 value={inputs.username}
                 onChange={(e) =>
@@ -39,8 +39,8 @@ const Login = () => {
               />
             </label>
           </div>
-          <div className="form-control">
-            <label className="input input-bordered flex items-center gap-2">
+          <div className="form-control  ">
+            <label className="input input-bordered flex items-center overflow-hidden gap-2">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 16 16"
@@ -55,7 +55,7 @@ const Login = () => {
               </svg>
               <input
                 type={showPassword ? "text" : "password"}
-                className="grow"
+                className="grow "
                 placeholder="••••••••"
                 value={inputs.password}
                 onChange={(e) =>
