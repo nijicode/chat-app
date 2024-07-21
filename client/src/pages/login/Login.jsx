@@ -55,7 +55,7 @@ const Login = () => {
               </svg>
               <input
                 type={showPassword ? "text" : "password"}
-                className="grow  "
+                className=" w-fit "
                 placeholder="••••••••"
                 value={inputs.password}
                 onChange={(e) =>
@@ -64,6 +64,7 @@ const Login = () => {
               />
               <button
                 type="button"
+                className="shrink ml-auto"
                 onClick={() => setShowPassword(!showPassword)}
               >
                 {showPassword ? (
